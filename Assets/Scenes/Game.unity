@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2159.163, g: 2263.6387, b: 3287.3125, a: 1}
+  m_IndirectSpecularColor: {r: 2159.747, g: 2263.629, b: 3286.6172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2308,6 +2308,7 @@ GameObject:
   - component: {fileID: 616954986}
   - component: {fileID: 616954985}
   - component: {fileID: 616954987}
+  - component: {fileID: 616954988}
   m_Layer: 0
   m_Name: Characters_POLYGON_Knights
   m_TagString: Untagged
@@ -3206,6 +3207,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891f290352ece45499ef81d32f810a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &616954988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609521594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a751947fc3afaeb418abaacbdb0aa323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &949109747

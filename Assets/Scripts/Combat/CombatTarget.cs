@@ -3,19 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 2022.5.10
+/// 2022.5.23
+/// 
+/// placeholder
 /// </summary>
 
-namespace RPG.Core
+namespace RPG.Combat
 {
-    public class FollowCameraSS : MonoBehaviour
+    public class CombatTarget : MonoBehaviour
     {
-        //for testing..
-        [SerializeField]
-        Camera camera;
-
-        [SerializeField]
-        Transform target;
         // Start is called before the first frame update
         void Start()
         {
@@ -23,9 +19,9 @@ namespace RPG.Core
         }
 
         // Update is called once per frame
-        void LateUpdate()
+        void Update()
         {
-            transform.position = target.position;
+
         }
     }
 }
