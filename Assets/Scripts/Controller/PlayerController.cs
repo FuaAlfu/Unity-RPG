@@ -24,11 +24,12 @@ namespace RPG.Control
         // Update is called once per frame
         void Update()
         {
-            InteractWithCombat();
-            InteractWithMovement();
+           if(InteractWithCombat()) return;
+            if(InteractWithMovement()) return;
+            print("done and done !!");
         }
 
-        private void InteractWithCombat()
+        private bool InteractWithCombat()
         {
             RaycastHit[] hits = Physics.RaycastAll(GetRay());
             foreach(RaycastHit hit in hits)
@@ -40,22 +41,14 @@ namespace RPG.Control
                 {
                     GetComponent<Fighter>().Attack(target);
                 }
+                return true;
             }
+            return false;
         }
 
-        private void InteractWithMovement()
+        private bool InteractWithMovement()
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                lastRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-                Debug.DrawRay(lastRay.origin, lastRay.direction * 100);
-                MoveToCursor();
-            }
-        }
-
-        private void MoveToCursor()
-        {
-           // Ray ray = GetRay();
+            // Ray ray = GetRay();
             RaycastHit hit;
             // bool hasHit = Physics.Raycast(ray, out hit);
             bool hasHit = Physics.Raycast(GetRay(), out hit);
@@ -63,9 +56,38 @@ namespace RPG.Control
             {
                 //nav.SetDestination(hit.point);
                 //  nav.destination = hit.point;
-                GetComponent<Mover>().MoveTo(hit.point);
+                if (Input.GetMouseButtonDown(0))
+                {
+                    GetComponent<Mover>().MoveTo(hit.point);
+                }
+                return true;
             }
+            return false;
         }
+
+        //private bool InteractWithMovement()
+        //{
+        //    if (Input.GetMouseButtonDown(0))
+        //    {
+        //        lastRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //        Debug.DrawRay(lastRay.origin, lastRay.direction * 100);
+        //        MoveToCursor();
+        //    }
+        //}
+
+        //private void MoveToCursor()
+        //{
+        //   // Ray ray = GetRay();
+        //    RaycastHit hit;
+        //    // bool hasHit = Physics.Raycast(ray, out hit);
+        //    bool hasHit = Physics.Raycast(GetRay(), out hit);
+        //    if (hasHit)
+        //    {
+        //        //nav.SetDestination(hit.point);
+        //        //  nav.destination = hit.point;
+        //            GetComponent<Mover>().MoveTo(hit.point);
+        //    }
+        //}
 
         private static Ray GetRay()
         {
