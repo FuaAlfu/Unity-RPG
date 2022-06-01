@@ -58,7 +58,8 @@ namespace RPG.Control
                 //  nav.destination = hit.point;
                 if (Input.GetMouseButtonDown(0))
                 {
-                    GetComponent<Mover>().MoveTo(hit.point);
+                    //GetComponent<Mover>().MoveTo(hit.point);
+                    GetComponent<Mover>().StarMoveAction(hit.point);
                 }
                 return true;
             }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using RPG.Combat;
 
 /// <summary>
 /// 2022.5.3
@@ -39,18 +40,30 @@ namespace RPG.Movement
             UpdateAnimator();
         }
 
-        private void UpdateAnimator()
+        public void StarMoveAction(Vector3 destination)
         {
-            Vector3 velocity = GetComponent<NavMeshAgent>().velocity;
-            Vector3 localVelocity = transform.InverseTransformDirection(velocity); //take global and conver it to local
-            float speed = localVelocity.z;
-            GetComponent<Animator>().SetFloat("forwardSpeed", speed);
+            GetComponent<Fighter>().Cancel();
+            MoveTo(destination);
         }
 
         public void MoveTo(Vector3 destination)
         {
-
             nav.destination = destination;
+            nav.isStopped = false;
+        }
+
+        public void Stop()
+        {
+            nav.isStopped = true;
+        }
+
+        private void UpdateAnimator()
+        {
+           // Vector3 velocity = GetComponent<NavMeshAgent>().velocity;
+            Vector3 velocity = nav.velocity;
+            Vector3 localVelocity = transform.InverseTransformDirection(velocity); //take global and conver it to local
+            float speed = localVelocity.z;
+            GetComponent<Animator>().SetFloat("forwardSpeed", speed);
         }
     }
 }
