@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.Movement;
+using RPG.Core;
 
 /// <summary>
 /// 2022
@@ -20,7 +21,8 @@ namespace RPG.Combat
         {
             // bool isInRange = GetIsInRange();
             // if (target != null && !isInRange)
-            if (target != null && !GetIsInRange())
+            if (target == null) return;
+            if(!GetIsInRange())
             {
                 GetComponent<Mover>().MoveTo(target.position);
             }
@@ -38,6 +40,7 @@ namespace RPG.Combat
         public  void Attack(CombatTarget conbatTarget)
         {
             print("boom");
+            GetComponent<ActionScheduler>().StartAction(this);
             target = conbatTarget.transform;
         }
 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using RPG.Combat;
+using RPG.Core;
 
 /// <summary>
 /// 2022.5.3
@@ -42,6 +43,8 @@ namespace RPG.Movement
 
         public void StarMoveAction(Vector3 destination)
         {
+            GetComponent<ActionScheduler>().StartAction(this);
+
             GetComponent<Fighter>().Cancel();
             MoveTo(destination);
         }
