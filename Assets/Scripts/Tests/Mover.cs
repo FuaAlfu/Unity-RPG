@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using RPG.Combat;
 using RPG.Core;
 
 /// <summary>
@@ -13,7 +12,7 @@ using RPG.Core;
 namespace RPG.Movement
 {
 
-    public class Mover : MonoBehaviour
+    public class Mover : MonoBehaviour, IAction
     {
         [SerializeField]
         Transform target;
@@ -45,7 +44,7 @@ namespace RPG.Movement
         {
             GetComponent<ActionScheduler>().StartAction(this);
 
-            GetComponent<Fighter>().Cancel();
+         //   GetComponent<Fighter>().Cancel(); //need RPG.combat
             MoveTo(destination);
         }
 
@@ -53,11 +52,6 @@ namespace RPG.Movement
         {
             nav.destination = destination;
             nav.isStopped = false;
-        }
-
-        public void Stop()
-        {
-            nav.isStopped = true;
         }
 
         private void UpdateAnimator()
@@ -68,5 +62,20 @@ namespace RPG.Movement
             float speed = localVelocity.z;
             GetComponent<Animator>().SetFloat("forwardSpeed", speed);
         }
+
+        public void Cancel()
+        {
+            nav.isStopped = true;
+        }
+
+        //public void Stop()
+        //{
+        //    nav.isStopped = true;
+        //}
+
+        //public void Cancel()
+        //{
+
+        //}
     }
 }
