@@ -16,6 +16,12 @@ namespace RPG.Combat
         float weaponRange = 2f;
 
         Transform target;
+        Animator animator;
+
+        void Start()
+        {
+            animator = GetComponent<Animator>();
+        }
 
         private void Update()
         {
@@ -29,7 +35,15 @@ namespace RPG.Combat
             else
             {
                 GetComponent<Mover>().Cancel();
+                // animator.SetTrigger("attack");
+                // GetComponent<Animator>().SetTrigger("attack");
+                AttackBehavior();
             }
+        }
+
+        private void AttackBehavior()
+        {
+            GetComponent<Animator>().SetTrigger("attack");
         }
 
         private bool GetIsInRange()
@@ -47,6 +61,12 @@ namespace RPG.Combat
         public void Cancel()
         {
             target = null;
+        }
+
+        //animation event
+        void Hit()
+        {
+            animator.SetTrigger("attack");
         }
     }
 }
