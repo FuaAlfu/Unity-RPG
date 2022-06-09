@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2159.1045, g: 2263.5605, b: 3287.1484, a: 1}
+  m_IndirectSpecularColor: {r: 2159.1045, g: 2263.5605, b: 3287.1328, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3222,7 +3222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a751947fc3afaeb418abaacbdb0aa323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponRange: 2
+  weaponRange: 1
+  timeBetweenAttack: 1
 --- !u!114 &616954989
 MonoBehaviour:
   m_ObjectHideFlags: 0
