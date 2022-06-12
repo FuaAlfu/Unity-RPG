@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1251517206708364861}
   - component: {fileID: 2805676455086100322}
   - component: {fileID: 5176049384542426582}
+  - component: {fileID: 6273278637996443407}
   m_Layer: 0
   m_Name: Enemy_Capsule
   m_TagString: Untagged
@@ -111,3 +112,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e298758c714a1f74391f95764f1feaee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6273278637996443407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6120364363791361246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38e8179492a0d81498c9f252f2c868ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
