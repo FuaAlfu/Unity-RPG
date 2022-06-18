@@ -13,6 +13,8 @@ namespace RPG.Combat
         [SerializeField]
         private float hp = 100f;
 
+        bool isDead = false;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -33,7 +35,17 @@ namespace RPG.Combat
             if (hp <= 0)
             {
                 print("enemy is dead..");
+                //FindObjectOfType<Fighter>().Cancel();
+                Die();
             }
+        }
+
+        private void Die()
+        {
+            if (isDead) return;
+
+            isDead = true;
+            GetComponent<Animator>().SetTrigger("die");
         }
     }
 }
