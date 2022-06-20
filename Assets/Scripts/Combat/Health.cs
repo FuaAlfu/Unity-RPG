@@ -15,6 +15,11 @@ namespace RPG.Combat
 
         bool isDead = false;
 
+        public bool Isdead()
+        {
+            return isDead;
+        }
+
         // Start is called before the first frame update
         void Start()
         {
