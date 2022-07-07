@@ -79,7 +79,8 @@ namespace RPG.Combat
           //  target.TakeDamage(weaponDamage);
         }
 
-        public bool CanAttack(CombatTarget combatTarget)
+       // public bool CanAttack(CombatTarget combatTarget)
+          public bool CanAttack(GameObject combatTarget)
         {
             if(combatTarget == null){ return false; }
 
@@ -93,7 +94,8 @@ namespace RPG.Combat
             return Vector3.Distance(transform.position, target.transform.position) < weaponRange;
         }
 
-        public  void Attack(CombatTarget conbatTarget)
+        //  public  void Attack(CombatTarget conbatTarget)
+        public void Attack(GameObject conbatTarget)
         {
             print("boom");
             GetComponent<ActionScheduler>().StartAction(this);
