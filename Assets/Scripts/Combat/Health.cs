@@ -4,9 +4,11 @@ using UnityEngine;
 
 /// <summary>
 /// 2022.6.10
+/// 
+/// combat = old
 /// </summary>
 
-namespace RPG.Combat
+namespace RPG.Core
 {
     public class Health : MonoBehaviour
     {
@@ -51,6 +53,7 @@ namespace RPG.Combat
 
             isDead = true;
             GetComponent<Animator>().SetTrigger("die");
+            GetComponent<ActionScheduler>().CancelCurrentAction();
         }
     }
 }

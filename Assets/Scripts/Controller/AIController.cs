@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using RPG.Combat;
+using RPG.Core;
 
 /// <summary>
 /// 2022.7.6
@@ -17,16 +18,20 @@ namespace RPG.Control
 
         Fighter fighter;
         GameObject player;
+        Health health;
+
         // Start is called before the first frame update
         void Start()
         {
             fighter = GetComponent<Fighter>();
             player = GameObject.FindWithTag("Player");
+            health = GetComponent<Health>();
         }
 
         // Update is called once per frame
         void Update()
         {
+            if (health.Isdead()) return;
             //GameObject player = GameObject.FindWithTag("Player");
 
             // if (DistanceToPlayer(player) < chaseDistance && fighter.CanAttack(player))

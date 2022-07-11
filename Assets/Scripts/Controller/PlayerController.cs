@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG.Movement;
 using RPG.Combat;
+using RPG.Core;
 
 
 /// <summary>
@@ -15,16 +16,20 @@ namespace RPG.Control
     public class PlayerController : MonoBehaviour
     {
         Ray lastRay;
+        Health health;
+
         // Start is called before the first frame update
         void Start()
         {
-
+            health = GetComponent<Health>();
         }
 
         // Update is called once per frame
         void Update()
         {
-           if(InteractWithCombat()) return;
+            if (health.Isdead()) return;
+
+            if (InteractWithCombat()) return;
             if(InteractWithMovement()) return;
            // print("done and done !!");
         }

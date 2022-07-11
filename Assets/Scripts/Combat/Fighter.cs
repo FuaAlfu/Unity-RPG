@@ -22,7 +22,8 @@ namespace RPG.Combat
         [SerializeField]
         float timeBetweenAttack = 2f; //0.6
 
-        float timeSinceLastAttack = 0;
+        //  float timeSinceLastAttack = 0;
+        float timeSinceLastAttack = Mathf.Infinity;
 
         Transform target;
         //Health target;
