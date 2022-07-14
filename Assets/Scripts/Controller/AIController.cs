@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using RPG.Combat;
 using RPG.Core;
+using RPG.Movement;
 
 /// <summary>
 /// 2022.7.6
@@ -19,6 +20,8 @@ namespace RPG.Control
         Fighter fighter;
         GameObject player;
         Health health;
+        Mover mover;
+        Vector3 guardPosition;
 
         // Start is called before the first frame update
         void Start()
@@ -26,6 +29,8 @@ namespace RPG.Control
             fighter = GetComponent<Fighter>();
             player = GameObject.FindWithTag("Player");
             health = GetComponent<Health>();
+            mover = GetComponent<Mover>();
+            guardPosition = transform.position;
         }
 
         // Update is called once per frame
@@ -43,7 +48,8 @@ namespace RPG.Control
             }
             else
             {
-                fighter.Cancel();
+                //fighter.Cancel();
+                mover.StarMoveAction(guardPosition);
             }
         }
 
