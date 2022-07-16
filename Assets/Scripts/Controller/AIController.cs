@@ -17,11 +17,15 @@ namespace RPG.Control
         [SerializeField]
         private float chaseDistance = 5f; // 5m or 5 unity units.
 
+        [SerializeField]
+        private float suspictionTime = 3f;
+
         Fighter fighter;
         GameObject player;
         Health health;
         Mover mover;
         Vector3 guardPosition;
+        float timeSinceLastSawPlayer = Mathf.Infinity;
 
         // Start is called before the first frame update
         void Start()
@@ -44,13 +48,37 @@ namespace RPG.Control
             {
                 //  if(gameObject.tag == "Player") { } //for debugging.
                 // print(gameObject.name + "see you");
-                fighter.Attack(player);
+                timeSinceLastSawPlayer = 0;
+                AttackBehaviour();
+            }
+            else if(timeSinceLastSawPlayer < suspictionTime)
+            {
+                //suspicion state
+                SuspicionBehaviour();
             }
             else
             {
                 //fighter.Cancel();
-                mover.StarMoveAction(guardPosition);
+                GuardBehaviour();
             }
+
+            timeSinceLastSawPlayer += Time.deltaTime;
+            //TabbedView
+        }
+
+        private void GuardBehaviour()
+        {
+            mover.StarMoveAction(guardPosition);
+        }
+
+        private void SuspicionBehaviour()
+        {
+            GetComponent<ActionScheduler>().CancelCurrentAction();
+        }
+
+        private void AttackBehaviour()
+        {
+            fighter.Attack(player);
         }
 
         //private float DistanceToPlayer(GameObject target)
