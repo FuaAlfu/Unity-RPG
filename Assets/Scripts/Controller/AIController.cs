@@ -5,6 +5,7 @@ using UnityEngine.AI;
 using RPG.Combat;
 using RPG.Core;
 using RPG.Movement;
+using System;
 
 /// <summary>
 /// 2022.7.6
@@ -20,12 +21,19 @@ namespace RPG.Control
         [SerializeField]
         private float suspictionTime = 3f;
 
+        [SerializeField]
+        ControlPath patrolPath;
+
+        [SerializeField]
+        private float waypointTolerance = 1f;
+
         Fighter fighter;
         GameObject player;
         Health health;
         Mover mover;
         Vector3 guardPosition;
         float timeSinceLastSawPlayer = Mathf.Infinity;
+        int currentWaypointIndex = 0;
 
         // Start is called before the first frame update
         void Start()
@@ -59,16 +67,43 @@ namespace RPG.Control
             else
             {
                 //fighter.Cancel();
-                GuardBehaviour();
+                // GuardBehaviour();
+                PatrolBehaviour();
             }
 
             timeSinceLastSawPlayer += Time.deltaTime;
             //TabbedView
         }
 
-        private void GuardBehaviour()
+        private void PatrolBehaviour()
         {
-            mover.StarMoveAction(guardPosition);
+            Vector3 nextPosition = guardPosition;
+            if(patrolPath != null)
+            {
+                if(AtWaypoint())
+                {
+                    CycleWaypoint();
+                }
+                nextPosition = GetCurrentWaypoint();
+            }
+            // mover.StarMoveAction(guardPosition);
+            mover.StarMoveAction(nextPosition);
+        }
+
+        private Vector3 GetCurrentWaypoint()
+        {
+            return patrolPath.GetWaypoint(currentWaypointIndex);
+        }
+
+        private void CycleWaypoint()
+        {
+            currentWaypointIndex = patrolPath.GetNextIndex(currentWaypointIndex);
+        }
+
+        private bool AtWaypoint()
+        {
+            float distanceToWaypoint = Vector3.Distance(transform.position, GetCurrentWaypoint());
+            return distanceToWaypoint < waypointTolerance;
         }
 
         private void SuspicionBehaviour()
