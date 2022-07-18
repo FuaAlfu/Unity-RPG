@@ -27,12 +27,16 @@ namespace RPG.Control
         [SerializeField]
         private float waypointTolerance = 1f;
 
+        [SerializeField]
+        private float waypointDwellTime = 3f;
+
         Fighter fighter;
         GameObject player;
         Health health;
         Mover mover;
         Vector3 guardPosition;
         float timeSinceLastSawPlayer = Mathf.Infinity;
+        float timeSinceArrivedAtWaypoint = Mathf.Infinity;
         int currentWaypointIndex = 0;
 
         // Start is called before the first frame update
@@ -59,7 +63,7 @@ namespace RPG.Control
                 timeSinceLastSawPlayer = 0;
                 AttackBehaviour();
             }
-            else if(timeSinceLastSawPlayer < suspictionTime)
+            else if (timeSinceLastSawPlayer < suspictionTime)
             {
                 //suspicion state
                 SuspicionBehaviour();
@@ -71,8 +75,14 @@ namespace RPG.Control
                 PatrolBehaviour();
             }
 
-            timeSinceLastSawPlayer += Time.deltaTime;
+            UpdateTimers();
             //TabbedView
+        }
+
+        private void UpdateTimers()
+        {
+            timeSinceLastSawPlayer += Time.deltaTime;
+            timeSinceArrivedAtWaypoint += Time.deltaTime;
         }
 
         private void PatrolBehaviour()
@@ -82,12 +92,16 @@ namespace RPG.Control
             {
                 if(AtWaypoint())
                 {
+                    timeSinceArrivedAtWaypoint = 0;
                     CycleWaypoint();
                 }
                 nextPosition = GetCurrentWaypoint();
             }
             // mover.StarMoveAction(guardPosition);
-            mover.StarMoveAction(nextPosition);
+            if(timeSinceArrivedAtWaypoint > waypointDwellTime)
+            {
+                mover.StarMoveAction(nextPosition);
+            }
         }
 
         private Vector3 GetCurrentWaypoint()

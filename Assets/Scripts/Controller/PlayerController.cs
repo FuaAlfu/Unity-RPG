@@ -47,7 +47,7 @@ namespace RPG.Control
                   {
                     continue;
                   }
-                if(Input.GetMouseButtonDown(0))
+                if(Input.GetMouseButton(0))  //GetMouseButtonDown
                 {
                     // GetComponent<Fighter>().Attack(target);
                     GetComponent<Fighter>().Attack(targetGameObject);
@@ -67,7 +67,7 @@ namespace RPG.Control
             {
                 //nav.SetDestination(hit.point);
                 //  nav.destination = hit.point;
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButton(0))  //GetMouseButtonDown
                 {
                     //GetComponent<Mover>().MoveTo(hit.point);
                     GetComponent<Mover>().StarMoveAction(hit.point);
