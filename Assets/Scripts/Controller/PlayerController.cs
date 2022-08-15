@@ -70,7 +70,7 @@ namespace RPG.Control
                 if (Input.GetMouseButton(0))  //GetMouseButtonDown
                 {
                     //GetComponent<Mover>().MoveTo(hit.point);
-                    GetComponent<Mover>().StarMoveAction(hit.point);
+                    GetComponent<Mover>().StarMoveAction(hit.point, 1f); //1f means full speed..
                 }
                 return true;
             }

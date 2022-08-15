@@ -45,8 +45,8 @@ namespace RPG.Combat
 
             if (!GetIsInRange())
             {
-                 GetComponent<Mover>().MoveTo(target.position);
-               // GetComponent<Mover>().MoveTo(target.transform.position);
+                 GetComponent<Mover>().MoveTo(target.position, 1f);  //1f means full speed..
+              // GetComponent<Mover>().MoveTo(target.transform.position);
             }
             else
             {

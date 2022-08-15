@@ -30,6 +30,10 @@ namespace RPG.Control
         [SerializeField]
         private float waypointDwellTime = 3f;
 
+        [Range(0,1)]
+        [SerializeField]
+        private float patrolSpeedFraction = 0.2f;
+
         Fighter fighter;
         GameObject player;
         Health health;
@@ -60,7 +64,7 @@ namespace RPG.Control
             {
                 //  if(gameObject.tag == "Player") { } //for debugging.
                 // print(gameObject.name + "see you");
-                timeSinceLastSawPlayer = 0;
+                //timeSinceLastSawPlayer = 0;  //we hide it at attack behaviour..
                 AttackBehaviour();
             }
             else if (timeSinceLastSawPlayer < suspictionTime)
@@ -100,7 +104,7 @@ namespace RPG.Control
             // mover.StarMoveAction(guardPosition);
             if(timeSinceArrivedAtWaypoint > waypointDwellTime)
             {
-                mover.StarMoveAction(nextPosition);
+                mover.StarMoveAction(nextPosition, patrolSpeedFraction);
             }
         }
 
@@ -127,6 +131,7 @@ namespace RPG.Control
 
         private void AttackBehaviour()
         {
+            timeSinceLastSawPlayer = 0;
             fighter.Attack(player);
         }
 
