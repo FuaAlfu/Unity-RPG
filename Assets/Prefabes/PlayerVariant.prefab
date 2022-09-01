@@ -72,6 +72,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5126367150057606834, guid: ff8bb8e41728bb44baeaa363f7562039,
+        type: 3}
+      propertyPath: hp
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 5739010477595324249, guid: ff8bb8e41728bb44baeaa363f7562039,
         type: 3}
       propertyPath: m_WarningMessage
@@ -82,6 +87,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerVariant
       objectReference: {fileID: 0}
+    - target: {fileID: 5739010477602708619, guid: ff8bb8e41728bb44baeaa363f7562039,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5739010477603061931, guid: ff8bb8e41728bb44baeaa363f7562039,
         type: 3}
       propertyPath: m_RootOrder
@@ -90,17 +100,17 @@ PrefabInstance:
     - target: {fileID: 5739010477603061931, guid: ff8bb8e41728bb44baeaa363f7562039,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 25.45
       objectReference: {fileID: 0}
     - target: {fileID: 5739010477603061931, guid: ff8bb8e41728bb44baeaa363f7562039,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -13.880551
       objectReference: {fileID: 0}
     - target: {fileID: 5739010477603061931, guid: ff8bb8e41728bb44baeaa363f7562039,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 17.78
       objectReference: {fileID: 0}
     - target: {fileID: 5739010477603061931, guid: ff8bb8e41728bb44baeaa363f7562039,
         type: 3}
@@ -163,3 +173,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 891f290352ece45499ef81d32f810a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &1795111101
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390794406451854184}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.23
+  m_Height: 1.95
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
