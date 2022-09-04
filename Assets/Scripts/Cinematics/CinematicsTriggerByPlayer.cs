@@ -8,9 +8,9 @@ using UnityEngine.Playables;
 /// </summary>
 
 
-namespace RPG.Cinamatics
+namespace RPG.Cinematics
 {
-    public class CinamaticsTriggerByPlayer : MonoBehaviour
+    public class CinematicsTriggerByPlayer : MonoBehaviour
     {
         bool alreadyTriggered = false;
 
