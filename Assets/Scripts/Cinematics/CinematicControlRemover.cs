@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using RPG.Core;
+using RPG.Control;
 
 /// <summary>
 /// 2022.9.4
@@ -11,6 +13,7 @@ namespace RPG.Cinematics
 {
     public class CinematicControlRemover : MonoBehaviour
     {
+        GameObject player;
 
         // Start is called before the first frame update
         void Start()
@@ -19,6 +22,8 @@ namespace RPG.Cinematics
             GetComponent<FakePlayableDirector>().onFinish += TestEnableControl;
             GetComponent<FakePlayableDirector>().onFinish += TestDisableControl;
 
+            player = GameObject.FindWithTag("Player");
+
             GetComponent<PlayableDirector>().played += DisableControl;
             GetComponent<PlayableDirector>().played += EnableControl;
         }
@@ -26,11 +31,15 @@ namespace RPG.Cinematics
         void DisableControl(PlayableDirector pd)
         {
             print("DisableControl");
+            
+            player.GetComponent<ActionScheduler>().CancelCurrentAction();
+            player.GetComponent<PlayerController>().enabled = false;
         }
 
         void EnableControl(PlayableDirector pd)
         {
             print("EnableControl");
+            player.GetComponent<PlayerController>().enabled = true;
         }
 
         //for testing
