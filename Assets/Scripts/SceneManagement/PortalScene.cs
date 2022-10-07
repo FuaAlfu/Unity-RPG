@@ -22,6 +22,17 @@ namespace SceneManagement
         [SerializeField]
         private int nextScene = -1;
 
+        [Header("Timer")]
+        [SerializeField]
+        float fadeOut = 1f;
+
+        [SerializeField]
+        float fadeIn = 2f;
+
+        [SerializeField]
+        float fadeWaitTime = 0.5f;
+
+        [Header("prefabe")]
         [SerializeField]
         Transform spawnPoint;
 
@@ -45,10 +56,15 @@ namespace SceneManagement
                 yield break;
             }
             DontDestroyOnLoad(gameObject);
+
+            Fader fader = FindObjectOfType<Fader>();
+            yield return fader.FadeOut(fadeOut);
             yield return SceneManager.LoadSceneAsync(nextScene);
             PortalScene otherPortal = GetOtherPortal();
             UpdatePlayer(otherPortal);
             print("Scene Loaded..");
+            yield return new WaitForSeconds(fadeWaitTime);
+            yield return fader.FadeIn(fadeIn);
             Destroy(gameObject);
         }
 

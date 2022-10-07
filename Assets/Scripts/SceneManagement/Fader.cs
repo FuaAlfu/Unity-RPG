@@ -19,7 +19,9 @@ namespace SceneManagement
         void Start()
         {
             canvasGroup = GetComponent<CanvasGroup>();
-            StartCoroutine(FadeOutIn());
+
+            //for testing
+          //  StartCoroutine(FadeOutIn());
         }
 
         IEnumerator FadeOutIn()
@@ -30,7 +32,7 @@ namespace SceneManagement
             print("F: in");
         }
 
-        IEnumerator FadeOut(float time)
+       public IEnumerator FadeOut(float time)
         {
             while (canvasGroup.alpha < 1)
             {
@@ -39,7 +41,7 @@ namespace SceneManagement
             }
         }
 
-        IEnumerator FadeIn(float time)
+       public IEnumerator FadeIn(float time)
         {
             while (canvasGroup.alpha > 0)
             {
