@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 /// 2022.10.5
 /// </summary>
 
-namespace SceneManagement
+namespace RPG.SceneManagement
 {
     public class PortalScene : MonoBehaviour
     {
