@@ -268,6 +268,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerVariant
       objectReference: {fileID: 0}
+    - target: {fileID: 7238305965834097489, guid: f635854f51ee9ed448c62d870e4dc5a7,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: def31809-8b19-4016-b42d-895372796773
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f635854f51ee9ed448c62d870e4dc5a7, type: 3}
 --- !u!4 &391998355 stripped
@@ -312,6 +317,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037968411296314409, guid: f4c0ebdf5d218174d90a82777d6569ee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8593590203318489462, guid: f4c0ebdf5d218174d90a82777d6569ee,
         type: 3}

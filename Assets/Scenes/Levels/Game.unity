@@ -339,6 +339,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerVariant
       objectReference: {fileID: 0}
+    - target: {fileID: 7238305965834097489, guid: f635854f51ee9ed448c62d870e4dc5a7,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: 7ead03f4-b237-488c-969a-5d57c2270fec
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f635854f51ee9ed448c62d870e4dc5a7, type: 3}
 --- !u!1001 &99534654
@@ -3165,6 +3170,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.050296366
       objectReference: {fileID: 0}
+    - target: {fileID: 7264492592895275595, guid: e4b09b759affbb344805159d812bde68,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: 1774ec4e-fd0d-4f02-98f3-5d3ce2b88963
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4b09b759affbb344805159d812bde68, type: 3}
 --- !u!4 &848273553 stripped
@@ -3525,7 +3535,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1233999316}
-  m_LocalRotation: {x: 0.005263813, y: 0.371152, z: -0.002103995, w: 0.92855483}
+  m_LocalRotation: {x: 0.0052638273, y: 0.371152, z: -0.002104001, w: 0.92855483}
   m_LocalPosition: {x: 1.7547331, y: 4.641472, z: 27.836464}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4146,6 +4156,11 @@ PrefabInstance:
       propertyPath: m_Speed
       value: 1.97
       objectReference: {fileID: 0}
+    - target: {fileID: 7264492592895275595, guid: e4b09b759affbb344805159d812bde68,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: 02c29806-4262-4ea0-8cdf-602e3ada9a7f
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4b09b759affbb344805159d812bde68, type: 3}
 --- !u!4 &1465914840 stripped
@@ -4264,6 +4279,11 @@ PrefabInstance:
       propertyPath: patrolPath
       value: 
       objectReference: {fileID: 1954405202}
+    - target: {fileID: 7264492592895275595, guid: e4b09b759affbb344805159d812bde68,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: 033b492d-931f-4bc4-8e66-f488e726c551
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4b09b759affbb344805159d812bde68, type: 3}
 --- !u!4 &1530548920 stripped

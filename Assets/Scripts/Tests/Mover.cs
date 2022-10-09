@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using RPG.Core;
+using RPG.Saving;
 
 /// <summary>
 /// 2022.5.3
@@ -12,7 +13,7 @@ using RPG.Core;
 namespace RPG.Movement
 {
 
-    public class Mover : MonoBehaviour, IAction
+    public class Mover : MonoBehaviour, IAction, ISaveable
     {
         [SerializeField]
         Transform target;
@@ -73,6 +74,16 @@ namespace RPG.Movement
         public void Cancel()
         {
             nav.isStopped = true;
+        }
+
+        public object CaptureState()
+        {
+            return new SerializableVector3(transform.position);
+        }
+
+        public void RestoreState(object state)
+        {
+            throw new NotImplementedException();
         }
 
         //public void Stop()
