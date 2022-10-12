@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RPG.Saving;
 
 /// <summary>
 /// 2022.6.10
@@ -10,7 +11,7 @@ using UnityEngine;
 
 namespace RPG.Core
 {
-    public class Health : MonoBehaviour
+    public class Health : MonoBehaviour, ISaveable
     {
         [SerializeField]
         private float hp = 100f;
@@ -54,6 +55,21 @@ namespace RPG.Core
             isDead = true;
             GetComponent<Animator>().SetTrigger("die");
             GetComponent<ActionScheduler>().CancelCurrentAction();
+        }
+
+        public object CaptureState()
+        {
+            return hp;
+        }
+
+        public void RestoreState(object state)
+        {
+            hp = (float)state;
+
+            if(hp == 0)
+            {
+                Die();
+            }
         }
     }
 }
