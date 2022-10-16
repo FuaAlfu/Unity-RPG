@@ -8,12 +8,17 @@ using RPG.Saving;
 /// 2022.10.8
 /// </summary>
 
-namespace RPG.SceneManagements
+namespace RPG.SceneManagement
 {
     public class SavingWrapper : MonoBehaviour
     {
         //DEFAULT_SAVE_FILE
         const string dufaultSaveFile = "save";
+
+         IEnumerator Start()
+        {
+          yield return GetComponent<SavingSystem>().LoadLastScene(dufaultSaveFile);
+        }
 
         // Update is called once per frame
         void Update()
@@ -28,12 +33,12 @@ namespace RPG.SceneManagements
             }
         }
 
-        private void Save()
+        public void Save()
         {
             GetComponent<SavingSystem>().Save(dufaultSaveFile);
         }
 
-        private void Load()
+        public void Load()
         {
             GetComponent<SavingSystem>().Load(dufaultSaveFile);
         }
