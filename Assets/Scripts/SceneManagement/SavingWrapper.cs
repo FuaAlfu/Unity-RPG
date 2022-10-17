@@ -15,9 +15,15 @@ namespace RPG.SceneManagement
         //DEFAULT_SAVE_FILE
         const string dufaultSaveFile = "save";
 
+        [SerializeField]
+        private float fadeInTime = 0.2f;
+
          IEnumerator Start()
         {
-          yield return GetComponent<SavingSystem>().LoadLastScene(dufaultSaveFile);
+            Fader fader = FindObjectOfType<Fader>();
+            fader.FadeoutImmediate();
+            yield return GetComponent<SavingSystem>().LoadLastScene(dufaultSaveFile);
+            yield return fader.FadeIn(fadeInTime);
         }
 
         // Update is called once per frame

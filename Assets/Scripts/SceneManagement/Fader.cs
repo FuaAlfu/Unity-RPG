@@ -16,12 +16,17 @@ namespace RPG.SceneManagement
         CanvasGroup canvasGroup;
 
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
             canvasGroup = GetComponent<CanvasGroup>();
 
             //for testing
           //  StartCoroutine(FadeOutIn());
+        }
+
+        public void FadeoutImmediate()
+        {
+            canvasGroup.alpha = 1;
         }
 
         IEnumerator FadeOutIn()
