@@ -76,27 +76,55 @@ namespace RPG.Movement
             nav.isStopped = true;
         }
 
+        /*
+         another solution
+         */
+
+        //public object CaptureState()
+        //{
+        //    Dictionary<string, object> data = new Dictionary<string, object>();
+        //    data["position"] = new SerializableVector3(transform.position);
+        //    data["rotation"] = new SerializableVector3(transform.eulerAngles);
+        //    return data;
+        //    // return new SerializableVector3(transform.position);
+        //}
+
+        //public void RestoreState(object state)
+        //{
+        //    // SerializableVector3 position = (SerializableVector3)state;
+        //    Dictionary<string, object> data = (Dictionary<string, object>) state;
+        //    GetComponent<NavMeshAgent>().enabled = false;
+        //    // transform.position = position.ToVector();
+        //    transform.position = ((SerializableVector3)data["position"]).ToVector();
+        //    transform.eulerAngles = ((SerializableVector3)data["rotation"]).ToVector();
+        //    GetComponent<NavMeshAgent>().enabled = true;
+        //}
+
         public object CaptureState()
         {
-            Dictionary<string, object> data = new Dictionary<string, object>();
-            data["position"] = new SerializableVector3(transform.position);
-            data["rotation"] = new SerializableVector3(transform.eulerAngles);
+            MoverStateData data = new MoverStateData();
+            data.position = new SerializableVector3(transform.position);
+            data.rotation = new SerializableVector3(transform.eulerAngles);
             return data;
-            // return new SerializableVector3(transform.position);
         }
 
         public void RestoreState(object state)
         {
-            // SerializableVector3 position = (SerializableVector3)state;
-            Dictionary<string, object> data = (Dictionary<string, object>) state;
+            MoverStateData data = (MoverStateData)state;
+            //  SerializableVector3 position = (SerializableVector3)state;
             GetComponent<NavMeshAgent>().enabled = false;
+            transform.position = data.position.ToVector();
+            transform.eulerAngles =  data.rotation.ToVector();
             // transform.position = position.ToVector();
-            transform.position = ((SerializableVector3)data["position"]).ToVector();
-            transform.eulerAngles = ((SerializableVector3)data["rotation"]).ToVector();
             GetComponent<NavMeshAgent>().enabled = true;
         }
 
-        struct MoverStateData { }
+        [System.Serializable]
+        struct MoverStateData 
+        {
+           public SerializableVector3 position;
+           public SerializableVector3 rotation;
+        }
 
         //public void Stop()
         //{

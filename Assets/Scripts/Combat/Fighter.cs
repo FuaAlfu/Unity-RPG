@@ -22,6 +22,12 @@ namespace RPG.Combat
         [SerializeField]
         float timeBetweenAttack = 2f; //0.6
 
+        [SerializeField]
+        GameObject weaponPrefabe = null;
+
+        [SerializeField]
+        Transform handForm = null;
+
         //  float timeSinceLastAttack = 0;
         float timeSinceLastAttack = Mathf.Infinity;
 
