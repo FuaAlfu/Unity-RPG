@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
+using System;
 
 /// <summary>
 /// 2022
@@ -38,6 +39,7 @@ namespace RPG.Combat
         void Start()
         {
             animator = GetComponent<Animator>();
+            SpawnWeapon();
         }
 
         private void Update()
@@ -61,6 +63,11 @@ namespace RPG.Combat
                 // GetComponent<Animator>().SetTrigger("attack");
                 AttackBehavior();
             }
+        }
+
+        private void SpawnWeapon()
+        {
+            Instantiate(weaponPrefabe, handForm);
         }
 
         private void AttackBehavior()
