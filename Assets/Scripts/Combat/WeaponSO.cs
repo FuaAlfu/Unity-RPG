@@ -8,19 +8,41 @@ using UnityEngine;
 
 namespace RPG.Combat
 {
-    [CreateAssetMenu(menuName = "tools/weapon", fileName = "weapons/make new weapon", order = 0)]
+    [CreateAssetMenu(menuName = "tools/defaultWeapon", fileName = "weapons/make new defaultWeapon", order = 0)]
     public class WeaponSO : ScriptableObject
     {
         [SerializeField]
         AnimatorOverrideController animatorOverride = null;
 
         [SerializeField]
-        GameObject weaponPrefabe = null;
+        GameObject equippedPrefabe = null;
+
+        [SerializeField]
+        float weaponDamage = 25f;
+
+        [SerializeField]
+        float weaponRange = 2f;
 
         public void Spawn(Transform handTransform, Animator animator)
         {
-            Instantiate(weaponPrefabe, handTransform);
-            animator.runtimeAnimatorController = animatorOverride;
+            if (equippedPrefabe != null)
+            {
+                Instantiate(equippedPrefabe, handTransform);
+            }
+            if (animatorOverride != null)
+            {
+                animator.runtimeAnimatorController = animatorOverride;
+            }
+        }
+
+        public float GetDamage()
+        {
+            return weaponDamage;
+        }
+
+        public float GetWeaponRange()
+        {
+            return weaponRange;
         }
     }
 }

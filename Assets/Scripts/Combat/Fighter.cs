@@ -13,11 +13,11 @@ namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour, IAction
     {
-        [SerializeField]
-        float weaponRange = 2f;
+        //[SerializeField]
+        //float weaponRange = 2f;
 
-        [SerializeField]
-        float weaponDamage = 25f;
+        //[SerializeField]
+        //float weaponDamage = 25f;
 
         [Tooltip("Throttle")]
         [SerializeField]
@@ -27,7 +27,9 @@ namespace RPG.Combat
         Transform handForm = null;
 
         [SerializeField]
-        WeaponSO weapon = null;       
+        WeaponSO defaultWeapon = null;
+
+        WeaponSO currentWeapon = null;
 
         //  float timeSinceLastAttack = 0;
         float timeSinceLastAttack = Mathf.Infinity;
@@ -39,7 +41,7 @@ namespace RPG.Combat
         void Start()
         {
             animator = GetComponent<Animator>();
-            SpawnWeapon();
+            EquipWeapon(defaultWeapon);
         }
 
         private void Update()
@@ -65,10 +67,11 @@ namespace RPG.Combat
             }
         }
 
-        private void SpawnWeapon()
+        public void EquipWeapon(WeaponSO weapon)
         {
-            if (weapon == null) return;
-                //Instantiate(weaponPrefabe, handForm);
+            // if (weapon == null) return;
+            currentWeapon = weapon;
+                //Instantiate(equippedPrefabe, handForm);
                 Animator animator = GetComponent<Animator>();
             // animator.runtimeAnimatorController = weaponOverride;
             weapon.Spawn(handForm,animator);
@@ -92,9 +95,10 @@ namespace RPG.Combat
             // animator.SetTrigger("attack");
 
              Health healthComponent = target.GetComponent<Health>();
-             healthComponent.TakeDamage(weaponDamage);
+            // healthComponent.TakeDamage(weaponDamage);
+            healthComponent.TakeDamage(currentWeapon.GetDamage());
 
-          //  target.TakeDamage(weaponDamage);
+            //  target.TakeDamage(weaponDamage);
         }
 
        // public bool CanAttack(CombatTarget combatTarget)
@@ -109,7 +113,8 @@ namespace RPG.Combat
         private bool GetIsInRange()
         {
             // return Vector3.Distance(transform.position, target.position) < weaponRange;
-            return Vector3.Distance(transform.position, target.transform.position) < weaponRange;
+            // return Vector3.Distance(transform.position, target.transform.position) < weaponRange;
+            return Vector3.Distance(transform.position, target.transform.position) < currentWeapon.GetWeaponRange();
         }
 
         //  public  void Attack(CombatTarget conbatTarget)
