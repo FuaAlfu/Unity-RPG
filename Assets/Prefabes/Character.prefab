@@ -109,7 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenAttack: 1
   handForm: {fileID: 0}
-  defaultWeapon: {fileID: 0}
+  defaultWeapon: {fileID: 11400000, guid: 14a27aa5177be3f409c7489b059222b2, type: 2}
 --- !u!114 &5739010477595324252
 MonoBehaviour:
   m_ObjectHideFlags: 0
