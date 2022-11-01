@@ -71,6 +71,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 528673701151516586}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &528673701151653146 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400048, guid: d288a0e4a2d923b46898986e979da643,
+    type: 3}
+  m_PrefabInstance: {fileID: 528673701151516586}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5362212125569697529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102,6 +108,16 @@ PrefabInstance:
     - target: {fileID: 5739010477595324253, guid: ff8bb8e41728bb44baeaa363f7562039,
         type: 3}
       propertyPath: handForm
+      value: 
+      objectReference: {fileID: 528673701151653144}
+    - target: {fileID: 5739010477595324253, guid: ff8bb8e41728bb44baeaa363f7562039,
+        type: 3}
+      propertyPath: leftHandTransform
+      value: 
+      objectReference: {fileID: 528673701151653146}
+    - target: {fileID: 5739010477595324253, guid: ff8bb8e41728bb44baeaa363f7562039,
+        type: 3}
+      propertyPath: rightHandTransform
       value: 
       objectReference: {fileID: 528673701151653144}
     - target: {fileID: 5739010477602708619, guid: ff8bb8e41728bb44baeaa363f7562039,
