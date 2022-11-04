@@ -27,7 +27,14 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         if (target == null) return;
-        transform.LookAt(target.position);
+       // transform.LookAt(target.position);
+        transform.LookAt(GetAimLocation());
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
+    }
+
+    private Vector3 GetAimLocation()
+    {
+        CapsuleCollider targetCapsule = target.GetComponent<CapsuleCollider>();
+        return target.position + Vector3.up * targetCapsule.height / 2;
     }
 }
