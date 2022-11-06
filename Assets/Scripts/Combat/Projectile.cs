@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RPG.Core;
 
 /// <summary>
 /// 2022.11.2
@@ -11,11 +12,13 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     GameObject player;
 
-    [SerializeField]
-    Transform target = null;
+    //[SerializeField]
+    //Transform target = null;
 
     [SerializeField]
     float speed = 2.2f;
+
+    Health target = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,9 +35,18 @@ public class Projectile : MonoBehaviour
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
+    public void SetTarget(Health target)
+    {
+        this.target = target;
+    }
+
     private Vector3 GetAimLocation()
     {
         CapsuleCollider targetCapsule = target.GetComponent<CapsuleCollider>();
-        return target.position + Vector3.up * targetCapsule.height / 2;
+        if(targetCapsule == null)
+        {
+            return target.transform.position;
+        }
+        return target.transform.position + Vector3.up * targetCapsule.height / 2;
     }
 }
