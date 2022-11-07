@@ -96,12 +96,26 @@ namespace RPG.Combat
         void Hit()
         {
             // animator.SetTrigger("attack");
-
+          //  if (target == null) { return; } //example
+            
              Health healthComponent = target.GetComponent<Health>();
-            // healthComponent.TakeDamage(weaponDamage);
-            healthComponent.TakeDamage(currentWeapon.GetDamage());
+            if (healthComponent == null) { return; }
+            if(currentWeapon.HasProjectile())
+            {
+                currentWeapon.LunchProjectile(rightHandTransform, leftHandTransform, healthComponent);
+            }
+            else
+            {
+                // healthComponent.TakeDamage(weaponDamage);
+                healthComponent.TakeDamage(currentWeapon.GetDamage());
 
-            //  target.TakeDamage(weaponDamage);
+                //  target.TakeDamage(weaponDamage);
+            }
+        }
+
+        void Shoot()
+        {
+            Hit();
         }
 
        // public bool CanAttack(CombatTarget combatTarget)
