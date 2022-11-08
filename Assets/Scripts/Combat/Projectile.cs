@@ -19,6 +19,8 @@ public class Projectile : MonoBehaviour
     float speed = 2.2f;
 
     Health target = null;
+
+    float damage = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,9 +37,16 @@ public class Projectile : MonoBehaviour
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
-    public void SetTarget(Health target)
+    private void OnTriggerEnter(Collider c)
+    {
+        if (c.GetComponent<Health>() != target) return;
+        target.TakeDamage(damage);
+    }
+
+    public void SetTarget(Health target, float damage)
     {
         this.target = target;
+        this.damage = damage;
     }
 
     private Vector3 GetAimLocation()
