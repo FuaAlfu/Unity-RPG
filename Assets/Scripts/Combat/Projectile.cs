@@ -41,6 +41,7 @@ public class Projectile : MonoBehaviour
     {
         if (c.GetComponent<Health>() != target) return;
         target.TakeDamage(damage);
+        Destroy(this.gameObject);
     }
 
     public void SetTarget(Health target, float damage)
