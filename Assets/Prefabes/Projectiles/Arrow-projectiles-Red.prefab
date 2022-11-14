@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5990445758125831226}
   - component: {fileID: 1350843123061683387}
   m_Layer: 0
-  m_Name: Arrow-projectiles
+  m_Name: Arrow-projectiles-Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,6 +115,26 @@ PrefabInstance:
     - target: {fileID: 4750687242688692, guid: c7f49c6920d49ba468b083941d79f2c0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 347529906159902323, guid: c7f49c6920d49ba468b083941d79f2c0,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 347529906159902323, guid: c7f49c6920d49ba468b083941d79f2c0,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 347529906159902323, guid: c7f49c6920d49ba468b083941d79f2c0,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 347529906159902323, guid: c7f49c6920d49ba468b083941d79f2c0,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.a
+      value: 0.39607844
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7f49c6920d49ba468b083941d79f2c0, type: 3}

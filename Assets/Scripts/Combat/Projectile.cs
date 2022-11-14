@@ -16,7 +16,7 @@ public class Projectile : MonoBehaviour
     //Transform target = null;
 
     [SerializeField]
-    float speed = 2.2f;
+    float speed = 6.2f;
 
     Health target = null;
 
