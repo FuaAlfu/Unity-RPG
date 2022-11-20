@@ -18,6 +18,9 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     float speed = 6.2f;
 
+    [SerializeField]
+    bool isHoming = true;
+
     Health target = null;
 
     float damage = 0;
@@ -26,6 +29,8 @@ public class Projectile : MonoBehaviour
     {
         //player = GameObject.FindGameObjectWithTag("Player");
         //transform.LookAt(player.transform.position);
+
+        transform.LookAt(GetAimLocation());
     }
 
     // Update is called once per frame
@@ -33,7 +38,10 @@ public class Projectile : MonoBehaviour
     {
         if (target == null) return;
        // transform.LookAt(target.position);
-        transform.LookAt(GetAimLocation());
+       if(isHoming)
+        {
+            transform.LookAt(GetAimLocation());
+        }
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
