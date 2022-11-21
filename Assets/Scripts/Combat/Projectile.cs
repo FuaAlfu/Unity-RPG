@@ -38,7 +38,7 @@ public class Projectile : MonoBehaviour
     {
         if (target == null) return;
        // transform.LookAt(target.position);
-       if(isHoming)
+       if(isHoming && !target.Isdead())
         {
             transform.LookAt(GetAimLocation());
         }
@@ -48,6 +48,7 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter(Collider c)
     {
         if (c.GetComponent<Health>() != target) return;
+        if (target.Isdead()) return;
         target.TakeDamage(damage);
         Destroy(this.gameObject);
     }
