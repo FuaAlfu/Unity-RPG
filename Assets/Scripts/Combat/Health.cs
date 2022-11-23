@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.Saving;
+using RPG.Combat;
 
 /// <summary>
 /// 2022.6.10
@@ -43,7 +44,7 @@ namespace RPG.Core
             if (hp <= 0)
             {
                 print("enemy is dead..");
-                //FindObjectOfType<Fighter>().Cancel();
+                FindObjectOfType<Fighter>().Cancel();
                 Die();
             }
         }
