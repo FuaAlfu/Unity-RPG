@@ -22,6 +22,13 @@ public class Projectile : MonoBehaviour
     private GameObject prefabeHitEffect = null;
 
     [SerializeField]
+    float maxLifeTime = 10f;
+
+    [SerializeField]
+    GameObject[] destroyOnHit = null;
+
+
+    [SerializeField]
     bool isHoming = true;
 
     Health target = null;
@@ -57,6 +64,11 @@ public class Projectile : MonoBehaviour
         {
             Instantiate(prefabeHitEffect, GetAimLocation(), transform.rotation);
         }
+
+        foreach(GameObject toDestroy in destroyOnHit)
+        {
+            Destroy(toDestroy);
+        }
         Destroy(this.gameObject);
     }
 
@@ -64,6 +76,8 @@ public class Projectile : MonoBehaviour
     {
         this.target = target;
         this.damage = damage;
+
+        Destroy(gameObject, maxLifeTime);
     }
 
     private Vector3 GetAimLocation()
