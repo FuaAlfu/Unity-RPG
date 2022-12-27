@@ -6,13 +6,16 @@ using UnityEngine;
 /// 2022.11.29
 /// </summary>
 
-public class CleanUpAfterEffectDone : MonoBehaviour
+namespace RPG.Core
 {
-    void Update()
+    public class CleanUpAfterEffectDone : MonoBehaviour
     {
-        if(!GetComponent<ParticleSystem>().IsAlive())
+        void Update()
         {
-            Destroy(gameObject);
+            if (!GetComponent<ParticleSystem>().IsAlive())
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

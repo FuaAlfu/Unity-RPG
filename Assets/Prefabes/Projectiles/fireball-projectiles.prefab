@@ -4921,6 +4921,10 @@ MonoBehaviour:
   speed: 8
   prefabeHitEffect: {fileID: 2302457091093092515, guid: 69d1b1037536b504884c93bb73d662db,
     type: 3}
+  maxLifeTime: 10
+  destroyOnHit:
+  - {fileID: 4269385030842625037}
+  lifeAfterImpact: 1.9
   isHoming: 1
 --- !u!65 &1350843123061683387
 BoxCollider:
