@@ -19,6 +19,9 @@ namespace RPG.Combat
         //[SerializeField]
         //float weaponDamage = 25f;
 
+        [SerializeField]
+        string defualtWeaponName = "Unarmed";
+
         [Tooltip("Throttle")]
         [SerializeField]
         float timeBetweenAttack = 2f; //0.6
@@ -44,7 +47,10 @@ namespace RPG.Combat
         void Start()
         {
             animator = GetComponent<Animator>();
-            EquipWeapon(defaultWeapon);
+            //EquipWeapon(defaultWeapon);
+
+            WeaponSO weapon = Resources.Load<WeaponSO>(defualtWeaponName);
+            EquipWeapon(weapon);
         }
 
         private void Update()
