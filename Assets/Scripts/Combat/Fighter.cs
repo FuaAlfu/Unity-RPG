@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
+using RPG.Saving;
 using System;
 
 /// <summary>
@@ -11,7 +12,7 @@ using System;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction
+    public class Fighter : MonoBehaviour, IAction, ISaveable
     {
         //[SerializeField]
         //float weaponRange = 2f;
@@ -19,8 +20,8 @@ namespace RPG.Combat
         //[SerializeField]
         //float weaponDamage = 25f;
 
-        [SerializeField]
-        string defualtWeaponName = "Unarmed";
+        //[SerializeField]
+        //string defualtWeaponName = "Unarmed";
 
         [Tooltip("Throttle")]
         [SerializeField]
@@ -47,10 +48,11 @@ namespace RPG.Combat
         void Start()
         {
             animator = GetComponent<Animator>();
-            //EquipWeapon(defaultWeapon);
+            EquipWeapon(defaultWeapon);
 
-            WeaponSO weapon = Resources.Load<WeaponSO>(defualtWeaponName);
-            EquipWeapon(weapon);
+          //new
+           // WeaponSO weapon = Resources.Load<WeaponSO>(defualtWeaponName);
+            //EquipWeapon(weapon);
         }
 
         private void Update()
@@ -156,6 +158,16 @@ namespace RPG.Combat
             GetComponent<Mover>().Cancel();
         }
 
-       
+        public object CaptureState()
+        {
+            return currentWeapon.name;
+        }
+
+        public void RestoreState(object state)
+        {
+            string weaponName = (string)state;
+            WeaponSO weapon = Resources.Load<WeaponSO>(weaponName);
+            EquipWeapon(weapon);
+        }
     }
 }
