@@ -48,7 +48,10 @@ namespace RPG.Combat
         void Start()
         {
             animator = GetComponent<Animator>();
-            EquipWeapon(defaultWeapon);
+            if(currentWeapon == null)
+            {
+                EquipWeapon(defaultWeapon);
+            }
 
           //new
            // WeaponSO weapon = Resources.Load<WeaponSO>(defualtWeaponName);
