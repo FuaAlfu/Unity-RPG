@@ -8,6 +8,7 @@ namespace RPG.Stats
     {
         Player,
         Grant,
-        Mage
+        Mage,
+        Archer
     }
 }

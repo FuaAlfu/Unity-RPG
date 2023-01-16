@@ -16,5 +16,8 @@ namespace RPG.Stats
 
         [SerializeField]
         CharacterClass characterClass;
+
+        [SerializeField]
+        Progression progression = null;
     }
 }
