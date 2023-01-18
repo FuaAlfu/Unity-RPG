@@ -6,16 +6,25 @@ using UnityEngine;
 /// 2023.1.16
 /// </summary>
 
-[CreateAssetMenu(menuName ="status/new progression",fileName ="progress",order = 1)]
-public class Progression: ScriptableObject
+namespace RPG.Stats
 {
-    [SerializeField]
-    ProgressionCharacterClass characterClass;
-
-    [System.Serializable]
-    class ProgressionCharacterClass
+    [CreateAssetMenu(menuName = "status/new progression", fileName = "progress", order = 1)]
+    public class Progression : ScriptableObject
     {
-        int value = 1;
-        string name = "value";
+        [SerializeField]
+        ProgressionCharacterClass[] characterClass = null;
+
+        [System.Serializable]
+        class ProgressionCharacterClass
+        {
+            // int value = 1;
+            // string name = "value";
+
+            [SerializeField]
+            CharacterClass characterClass;
+
+            [SerializeField]
+            float[] health;
+        }
     }
 }
