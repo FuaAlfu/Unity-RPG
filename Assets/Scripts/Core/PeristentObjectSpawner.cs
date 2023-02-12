@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 
 
-namespace RPG.Core
+namespace RPG.Attribute
 {
     public class PeristentObjectSpawner : MonoBehaviour
     {

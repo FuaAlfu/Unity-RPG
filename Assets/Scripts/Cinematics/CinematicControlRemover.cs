@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
-using RPG.Core;
+using RPG.Attribute;
 using RPG.Control;
 
 /// <summary>

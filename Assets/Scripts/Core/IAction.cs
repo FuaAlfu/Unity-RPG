@@ -6,7 +6,7 @@ using UnityEngine;
 /// 2022.6.5
 /// </summary>
 
-namespace RPG.Core
+namespace RPG.Attribute
 {
     public interface IAction
     {

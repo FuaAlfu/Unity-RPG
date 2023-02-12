@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG.Saving;
 using RPG.Combat;
+using RPG.Stats;
 
 /// <summary>
 /// 2022.6.10
@@ -10,7 +11,7 @@ using RPG.Combat;
 /// combat = old
 /// </summary>
 
-namespace RPG.Core
+namespace RPG.Attribute
 {
     public class Health : MonoBehaviour, ISaveable
     {
@@ -27,7 +28,8 @@ namespace RPG.Core
         // Start is called before the first frame update
         void Start()
         {
-
+            //bug for enemies health status.. will be fix later on
+            hp = GetComponent<BaseStats>().GetHealth();
         }
 
         // Update is called once per frame

@@ -6,7 +6,7 @@ using UnityEngine;
 /// 2022.11.29
 /// </summary>
 
-namespace RPG.Core
+namespace RPG.Attribute
 {
     public class CleanUpAfterEffectDone : MonoBehaviour
     {

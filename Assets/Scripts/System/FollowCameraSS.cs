@@ -6,7 +6,7 @@ using UnityEngine;
 /// 2022.5.10
 /// </summary>
 
-namespace RPG.Core
+namespace RPG.Attribute
 {
     public class FollowCameraSS : MonoBehaviour
     {

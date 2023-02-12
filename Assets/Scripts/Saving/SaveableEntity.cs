@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using RPG.Core;
+using RPG.Attribute;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;

@@ -6,7 +6,7 @@ using UnityEngine;
 /// 2022.6.3
 /// </summary>
 
-namespace RPG.Core
+namespace RPG.Attribute
 {
     public class ActionScheduler : MonoBehaviour
     {

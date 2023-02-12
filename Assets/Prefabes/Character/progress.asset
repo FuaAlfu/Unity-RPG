@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterClass:
   - characterClass: 0
-    health: []
+    health:
+    - 20
+    - 40
+    - 50
+    - 55
+    - 62
   - characterClass: 1
     health: []
   - characterClass: 2
